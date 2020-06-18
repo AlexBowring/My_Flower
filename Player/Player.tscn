@@ -1,0 +1,93 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile001.png" type="Texture" id=1]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile000.png" type="Texture" id=2]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile002.png" type="Texture" id=3]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile003.png" type="Texture" id=4]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile004.png" type="Texture" id=5]
+[ext_resource path="res://Player/Player.gd" type="Script" id=6]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile004.png" type="Texture" id=7]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile000.png" type="Texture" id=8]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile010.png" type="Texture" id=9]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile011.png" type="Texture" id=10]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile007.png" type="Texture" id=11]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile008.png" type="Texture" id=12]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile005.png" type="Texture" id=13]
+[ext_resource path="res://Player/Virtual Guy/Jump (32x32).png" type="Texture" id=14]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile006.png" type="Texture" id=15]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile010.png" type="Texture" id=16]
+[ext_resource path="res://Player/Virtual Guy/Fall (32x32).png" type="Texture" id=17]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile003.png" type="Texture" id=18]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile006.png" type="Texture" id=19]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile002.png" type="Texture" id=20]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile008.png" type="Texture" id=21]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile009.png" type="Texture" id=22]
+[ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile009.png" type="Texture" id=23]
+[ext_resource path="res://Player/Virtual Guy/Run_Frames/tile001.png" type="Texture" id=24]
+[ext_resource path="res://Player/Virtual Guy/tile001.png" type="Texture" id=25]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Glide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 23 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 30.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 6.54541
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 2.28394, -8.56464 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 9
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[node name="RightCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 15, 0 )
+
+[node name="LeftCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -15, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -60 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0

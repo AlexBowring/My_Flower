@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/Lava.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.03057, 8.03767 )
+
+[node name="KillerTiles" type="Node"]
+
+[node name="Top_Left" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Top_Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Left/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Top_Right" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Top_Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Right/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Bottom_Right" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bottom_Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Right/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Bottom_Left" type="Sprite" parent="."]
+position = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bottom_Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Left/StaticBody2D"]
+shape = SubResource( 1 )
