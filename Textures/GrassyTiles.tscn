@@ -3,7 +3,7 @@
 [ext_resource path="res://Textures/Terrain (16x16).png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.06828, 8.03353 )
+extents = Vector2( 7.98606, 8.03353 )
 
 [node name="GrassyTiles" type="Node"]
 
@@ -130,18 +130,4 @@ __meta__ = {
 [node name="StaticBody2D" type="StaticBody2D" parent="Bottom_Right"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Right/StaticBody2D"]
-shape = SubResource( 1 )
-
-[node name="Full_Black" type="Sprite" parent="."]
-position = Vector2( 96, 64 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 12.6391, 74.6273, 16.0044, 16.0044 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Full_Black"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Full_Black/StaticBody2D"]
 shape = SubResource( 1 )

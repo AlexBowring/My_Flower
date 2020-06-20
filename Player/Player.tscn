@@ -67,7 +67,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 9
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -85,9 +85,6 @@ cast_to = Vector2( -15, 0 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -60 )
 current = true
-drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
+smoothing_speed = 8.0
 drag_margin_bottom = 0.0
