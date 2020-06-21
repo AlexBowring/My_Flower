@@ -46,9 +46,9 @@ func _physics_process(delta):
 		else: 
 			right_wall_jump=false
 			if glide == false:
-				motion.x = min(max(motion.x + ACCELERATION, 0), MAX_SPEED)
+				motion.x = min(max(motion.x + ACCELERATION, -50), MAX_SPEED)
 			else:
-				motion.x = min(max(motion.x + GLIDE_HACCELERATION, 0), GLIDE_HMAX_SPEED)
+				motion.x = min(max(motion.x + GLIDE_HACCELERATION, -50), GLIDE_HMAX_SPEED)
 			$AnimatedSprite.flip_h = false
 			$AnimatedSprite.play("Run")
 	elif Input.is_action_pressed("ui_left"):
@@ -59,9 +59,9 @@ func _physics_process(delta):
 		else:
 			left_wall_jump = false
 			if glide == false:
-				motion.x = max(min(motion.x - ACCELERATION, 0), -MAX_SPEED)
+				motion.x = max(min(motion.x - ACCELERATION, 50), -MAX_SPEED)
 			else:
-				motion.x = max(min(motion.x - GLIDE_HACCELERATION, 0), -GLIDE_HMAX_SPEED)
+				motion.x = max(min(motion.x - GLIDE_HACCELERATION, 50), -GLIDE_HMAX_SPEED)
 			$AnimatedSprite.play("Run")
 			$AnimatedSprite.flip_h = true
 	else:
@@ -77,12 +77,13 @@ func _physics_process(delta):
 			motion.y = JUMP_HEIGHT
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.3)
+		right_wall_jump_cool_down_time = 1.5
+		left_wall_jump_cool_down_time = 1.5
+		
 		if Input.is_action_just_released("ui_right"):
 			motion.x = min(motion.x, 80)
 		if Input.is_action_just_released("ui_left"):
-			motion.x = min(motion.x, -80)
-		right_wall_jump_cool_down_time = 1.5
-		left_wall_jump_cool_down_time = 1.5
+			motion.x = max(motion.x, -80)
 	else:
 		off_ground_time += delta
 		if Input.is_action_just_pressed("ui_select"):
@@ -110,7 +111,7 @@ func _physics_process(delta):
 		if Input.is_action_just_released("ui_select") && motion.y < -150 && right_wall_jump == false && left_wall_jump == false && glide == false:
 			motion.y = SMALL_JUMP_HEIGHT
 		elif Input.is_action_just_released("ui_select") && glide == true:
-			glide = false
+			glide = false		
 		
 		if glide == false:
 			if motion.y < 0:
@@ -119,6 +120,12 @@ func _physics_process(delta):
 				$AnimatedSprite.play("Fall")
 		else:
 			$AnimatedSprite.play("Glide")
+		
+		if Input.is_action_just_released("ui_right") && glide == false && right_wall_jump == false && left_wall_jump == false:
+			motion.x = min(motion.x, 200)
+		if Input.is_action_just_released("ui_left") && glide == false && right_wall_jump == false && left_wall_jump == false:
+			motion.x = max(motion.x, -200)
+		
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.04)
 	

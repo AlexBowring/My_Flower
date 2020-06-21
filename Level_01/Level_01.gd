@@ -1,10 +1,10 @@
 extends Node2D
 
 func set_camera_limits():
-	var map_limits = $GrassyTiles.get_used_rect()
-	var map_cellsize = $GrassyTiles.cell_size
-	$Player/Camera2D.limit_left = map_limits.position.x * map_cellsize.x
-	$Player/Camera2D.limit_right = map_limits.end.x * map_cellsize.x
+	var map_limits = $Border.get_used_rect()
+	var map_cellsize = $Border.cell_size
+	$Player/Camera2D.limit_left = (map_limits.position.x+1) * map_cellsize.x
+	$Player/Camera2D.limit_right = (map_limits.end.x-1) * map_cellsize.x
 	#$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 	#$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 

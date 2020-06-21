@@ -1,9 +1,30 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Textures/Lava.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Idle.png" type="Texture" id=2]
+[ext_resource path="res://Textures/SpikeMiddle.png" type="Texture" id=3]
+[ext_resource path="res://Textures/SpikeBottom.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.03057, 8.03767 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 3.5, -7.5, 7, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 0, 0, 3.5, -7.5, 7, 0 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 0.536772, 8.02731 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 0.532525, 8.00671 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 0.508577, 8.05083 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 0.529905, 8.01772 )
 
 [node name="KillerTiles" type="Node"]
 
@@ -61,3 +82,46 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Left/StaticBody2D"]
 shape = SubResource( 1 )
+
+[node name="SpikeTop" type="Sprite" parent="."]
+position = Vector2( 0, 64 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 15, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpikeTop"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTop/StaticBody2D"]
+position = Vector2( -8, 8 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SpikeTop/StaticBody2D"]
+position = Vector2( 0, 8 )
+shape = SubResource( 9 )
+
+[node name="SpikeMiddle" type="Sprite" parent="."]
+position = Vector2( 0, 80 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpikeMiddle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeMiddle/StaticBody2D"]
+position = Vector2( -4.5, 0 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SpikeMiddle/StaticBody2D"]
+position = Vector2( 3.5, 0 )
+shape = SubResource( 11 )
+
+[node name="SpikeBottom" type="Sprite" parent="."]
+position = Vector2( 0, 96 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpikeBottom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeBottom/StaticBody2D"]
+position = Vector2( -4.5, 0 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SpikeBottom/StaticBody2D"]
+position = Vector2( 3.5, 0 )
+shape = SubResource( 13 )

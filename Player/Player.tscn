@@ -28,11 +28,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "Glide",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "Jump",
@@ -52,6 +47,11 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Glide",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
