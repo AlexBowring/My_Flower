@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpikeTop.png-a52b030f7c9199724a75b318e71180c4.stex"
+path="res://.import/RedSpikeTop.png-9a8be5e3a4de548f6051043b8f783f43.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/SpikeTop.png"
-dest_files=[ "res://.import/SpikeTop.png-a52b030f7c9199724a75b318e71180c4.stex" ]
+source_file="res://Textures/RedSpikeTop.png"
+dest_files=[ "res://.import/RedSpikeTop.png-9a8be5e3a4de548f6051043b8f783f43.stex" ]
 
 [params]
 

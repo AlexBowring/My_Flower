@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Textures/Terrain (16x16).png" type="Texture" id=1]
+[ext_resource path="res://Textures/SpikeTop.png" type="Texture" id=2]
+[ext_resource path="res://Textures/BigSpikeBlock.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 71.9849, 7.98951 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 69.0965, 2.97632 )
+
+[node name="BigSpikeBlock" type="KinematicBody2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite10" type="Sprite" parent="."]
+position = Vector2( 0, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite11" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite12" type="Sprite" parent="."]
+position = Vector2( 32, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite13" type="Sprite" parent="."]
+position = Vector2( 48, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite14" type="Sprite" parent="."]
+position = Vector2( 64, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite15" type="Sprite" parent="."]
+position = Vector2( 80, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite16" type="Sprite" parent="."]
+position = Vector2( 96, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite17" type="Sprite" parent="."]
+position = Vector2( 112, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite18" type="Sprite" parent="."]
+position = Vector2( 128, 16 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 64, 16, 16 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 16, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 112, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 207, 64, 16, 16 )
+
+[node name="Sprite9" type="Sprite" parent="."]
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 64, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 64, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 64, 12 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -8, 16 )
+enabled = true
+cast_to = Vector2( 0, 256 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( 136, 16 )
+enabled = true
+cast_to = Vector2( 0, 256 )
