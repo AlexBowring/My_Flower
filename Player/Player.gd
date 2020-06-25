@@ -95,7 +95,8 @@ func _physics_process(delta):
 				motion.x = -WALLJUMP_HORZ
 				right_wall_jump_cool_down_time = 0
 				left_wall_jump_cool_down_time = 1.5
-			elif left_ray.is_colliding() && glide==false:
+				wall_jump_time = 0
+			elif left_ray.is_colliding() && glide==false && left_wall_jump_cool_down_time > 1.4:
 				$AnimatedSprite.flip_h = false
 				left_wall_jump = true
 				right_wall_jump = false
@@ -103,6 +104,7 @@ func _physics_process(delta):
 				motion.x = WALLJUMP_HORZ
 				left_wall_jump_cool_down_time = 0
 				right_wall_jump_cool_down_time = 1.5
+				wall_jump_time = 0
 			elif off_ground_time < 0.2:
 				motion.y = JUMP_HEIGHT
 			elif wall_jump_time == 0 or wall_jump_time > 0.2:
