@@ -12,9 +12,6 @@ extents = Vector2( 62.8827, 2.97632 )
 
 [node name="MediumSpikeBlock" type="KinematicBody2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite10" type="Sprite" parent="."]
 position = Vector2( 0, 16 )
@@ -112,11 +109,11 @@ position = Vector2( 56, 12 )
 shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -8, 16 )
+position = Vector2( -4, 16 )
 enabled = true
 cast_to = Vector2( 0, 256 )
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2( 120, 16 )
+position = Vector2( 116, 16 )
 enabled = true
 cast_to = Vector2( 0, 256 )
