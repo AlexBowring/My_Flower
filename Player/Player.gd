@@ -21,8 +21,10 @@ var right_wall_jump = false
 var wall_jump_time = 0
 var right_wall_jump_cool_down_time = 0
 var left_wall_jump_cool_down_time = 0
+var snap = Vector2.DOWN * 16
 
 func _physics_process(delta):
+	var snap = Vector2.DOWN * 16 if !Input.is_action_pressed("ui_select") else Vector2.ZERO
 	var friction = false
 	off_ground_time += delta
 	right_wall_jump_cool_down_time += delta
@@ -124,14 +126,15 @@ func _physics_process(delta):
 			$AnimatedSprite.play("Glide")
 		
 		if Input.is_action_just_released("ui_right") && glide == false && right_wall_jump == false && left_wall_jump == false:
-			motion.x = min(motion.x, 200)
+			motion.x = min(motion.x, 150)
 		if Input.is_action_just_released("ui_left") && glide == false && right_wall_jump == false && left_wall_jump == false:
-			motion.x = max(motion.x, -200)
+			motion.x = max(motion.x, -150)
 		
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.04)
+			
+	motion = move_and_slide_with_snap(motion, snap, UP)
 	
-	motion = move_and_slide(motion, UP)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "LavaTiles":

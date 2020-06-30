@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile001.png" type="Texture" id=1]
 [ext_resource path="res://Player/Virtual Guy/Idle_Frames/tile000.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Player/Virtual Guy/Run_Frames/tile001.png" type="Texture" id=24]
 [ext_resource path="res://Player/Virtual Guy/tile001.png" type="Texture" id=25]
 [ext_resource path="res://Backgrounds/Sky_background.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Timer.tscn" type="PackedScene" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -33,6 +34,11 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
@@ -48,17 +54,17 @@ animations = [ {
 "loop": true,
 "name": "Jump",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-height = 6.54541
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.14965, 12.511 )
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=3]
+height = 4.17846
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 position = Vector2( 2.28394, -8.56464 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -68,12 +74,15 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 7
 playing = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3.5 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="RightCast2D" type="RayCast2D" parent="."]
 enabled = true
@@ -89,6 +98,12 @@ current = true
 drag_margin_v_enabled = true
 smoothing_speed = 8.0
 drag_margin_bottom = 0.0
+
+[node name="RichTextLabel" parent="Camera2D" instance=ExtResource( 27 )]
+margin_left = -300.0
+margin_top = -240.0
+margin_right = -220.0
+margin_bottom = -200.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
